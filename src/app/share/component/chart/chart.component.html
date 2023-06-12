@@ -1,0 +1,29 @@
+<!-- <li class="nav-item dropdown show" >
+  <a class="nav-link dropdown-toggle" appDropdown id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </a>
+  <div class="dropdown-menu "  aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" routerLink="create">Action</a>
+    <a class="dropdown-item" routerLink="table">Another action</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item">Something else here</a>
+  </div>
+</li>
+ -->
+      <li class="nav-item dropdown"  routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}" appShowhide>
+          <a
+            class="nav-link dropdown-toggle"
+            appDropdown
+            [property]="'show'"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            user
+          </a>
+          <ul  class="dropdown-menu" >
+            <li appShowClass><a class="dropdown-item" routerLinkActive="active"  routerLink="/table">User Table</a></li>
+            <li appShowClass><a class="dropdown-item" routerLinkActive="active" routerLink="/card">Create User</a></li>
+          </ul>
+        </li>

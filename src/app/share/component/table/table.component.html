@@ -1,0 +1,92 @@
+<!-- <input type="text" [(ngModel)]="search" class="form-control" />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>sr.no</th>
+      <th>TranactionCode</th>
+      <th>Name</th>
+      <th>InvestAmount</th>
+      <th>InvestRate</th>
+      <th>Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of BankingArr | filter : search; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.TranactionCode }}</td>
+      <td>{{ item.Name }}</td>
+      <td>{{ item.InvestAmount }}</td>
+      <td>{{ item.InvestRate }}</td>
+      <td>
+        <button class="btn btn-dark">view Details</button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+<div class="container mt-4">
+<div class="row">
+  <div class="col-8">
+    <h1>Table</h1>
+  </div>
+  <div class="col-4">
+    <div  class="search-container ml-auto">
+
+
+      <mat-form-field appearance="outline">
+        <input class="ml-4 input"
+        matInput
+        placeholder="search"
+        autocomplete="off"
+         matInput placeholder="Search"
+        (keyup)="filterData($event)"
+        />
+        <mat-icon matSuffix mat-icon >search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- TranactionCode Column -->
+    <ng-container matColumnDef="TranactionCode">
+      <th mat-header-cell *matHeaderCellDef>TranactionCode</th>
+      <td mat-cell *matCellDef="let element">{{ element.TranactionCode }}-{{create_UUID().slice(0,13)}}</td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.Name }}</td>
+    </ng-container>
+    <!-- InvestAmount Column -->
+    <ng-container matColumnDef="InvestAmount">
+      <th mat-header-cell *matHeaderCellDef>InvestAmount</th>
+      <td mat-cell *matCellDef="let element">{{ element.InvestAmount }}</td>
+    </ng-container>
+    <!-- InvestRate Column -->
+    <ng-container matColumnDef="InvestRate">
+      <th mat-header-cell *matHeaderCellDef>InvestRate</th>
+      <td mat-cell *matCellDef="let element">{{ element.InvestRate }}%</td>
+    </ng-container>
+    <!-- button -->
+    <ng-container matColumnDef="option">
+      <th mat-header-cell *matHeaderCellDef>option</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-stroked-button>
+          <i class="fa-regular fa-eye"></i>
+          view
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    #paginator
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

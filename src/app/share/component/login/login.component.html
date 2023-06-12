@@ -1,0 +1,133 @@
+<div class="main d-flex">
+  <mat-card class="form text-center pl-5">
+    <form [formGroup]="LogInform" class="example-form" (ngSubmit)="LogIn()">
+      <!-- login section -->
+      <div class="login" *ngIf="IsHavingAccount">
+        <!-- heading -->
+        <h1 class="mb-4 bg-info p-2 text-center text-white">Login Page</h1>
+        <!--  login username input-->
+        <div class="form-group">
+          <div class="input-group mb-3">
+
+            <mat-form-field
+              appearance="fill"
+              color="primary"
+              class="example-full-width"
+            >
+              <mat-label>Username</mat-label>
+              <input
+                type="email"
+                placeholder="Username"
+                formControlName="userName"
+                matInput
+              />
+              <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+            <!-- </form> -->
+
+            <!-- <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fa-solid fa-at"></i>
+                </span>
+              </div> -->
+          </div>
+        </div>
+        <!--  login passord input-->
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <mat-form-field
+              appearance="fill"
+              color="primary"
+              class="example-full-width"
+            >
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                formControlName="password"
+                placeholder="password"
+                matInput
+              />
+              <!-- <mat-icon matSuffix>lock</mat-icon> -->
+              <!-- <mat-icon matSuffix>lock_open</mat-icon> -->
+
+            </mat-form-field>
+          </div>
+        </div>
+        <!--  login button-->
+        <div class="text-right">
+          <button class="btn-lg" mat-raised-button color="primary">
+            log-In
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <form>
+      <div class="signUp" *ngIf="!IsHavingAccount">
+        <!--signUp heading section -->
+        <h3 class="mb-2">SignUp</h3>
+        <!--  Signup username input-->
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="username" />
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-at"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--  signup password input-->
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="password"
+              aria-label="password"
+              aria-describedby="basic-addon1"
+            />
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--  signup  confirm password input-->
+
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="confirm password"
+              aria-label="password"
+              aria-describedby="basic-addon1"
+            />
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--  signup create button-->
+
+        <div class="text-right">
+          <button class="btn-lg" mat-raised-button color="primary">
+            Create Account
+          </button>
+        </div>
+      </div>
+      <!-- messege Section -->
+    </form>
+  <div class="text-left">
+    <p>
+      <a href="javascript:;" (click)="IsHavingAccount = !IsHavingAccount">{{
+        IsHavingAccount ? "Dont have account" : "Allready have a account"
+      }}</a>
+    </p>
+  </div>
+  </mat-card>
+</div>
